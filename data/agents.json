@@ -23,6 +23,16 @@
       "type": "Ad Intelligence"
     },
     {
+  "id": "23892d9e-94b0-484a-96ec-32117bee3a1e",
+  "name": "📝 Copywriting Tips",
+  "status": "active",
+  "schedule": "Every 6 hours",
+  "nextRun": "In 6 hours",
+  "output": "10 tips + 3 ad analyses",
+  "focus": "Direct response copywriting & persuasion",
+  "type": "Marketing Research"
+}
+    {
       "id": "0c44b9c4-a37c-40f5-b7fb-5715bc42537d",
       "name": "🔍 Product Deep Dive",
       "status": "standby",
@@ -102,6 +112,12 @@
       "deliverable": "Updated patterns + trends",
       "status": "active"
     }
+    {
+  "time": "Every 6 hours",
+  "agent": "📝 Copywriting Tips",
+  "deliverable": "10 copywriting tips + 3 ad analyses",
+  "status": "active"
+}
   ],
   "recentReports": [
     {
