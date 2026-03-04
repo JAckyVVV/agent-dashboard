@@ -1,0 +1,120 @@
+{
+  "lastUpdated": "2026-03-04T10:45:00Z",
+  "timezone": "America/Denver",
+  "agents": [
+    {
+      "id": "75a515ea-81aa-46cc-842e-0df8e8c9ca79",
+      "name": "🛒 Product Hunter",
+      "status": "active",
+      "schedule": "Daily 10:00 AM MST",
+      "nextRun": "Tomorrow 10:00 AM",
+      "output": "10 products + links",
+      "focus": "Dropshipping product research",
+      "type": "Daily Product Research"
+    },
+    {
+      "id": "fc1d80af-c473-414b-b0cd-4b06f3485565",
+      "name": "📢 Meta Ad Research",
+      "status": "active",
+      "schedule": "2x/day (9 AM, 6 PM MST)",
+      "nextRun": "Today 6:00 PM",
+      "output": "Ad patterns + product signals",
+      "focus": "Meta/Facebook ad intelligence",
+      "type": "Ad Intelligence"
+    },
+    {
+      "id": "0c44b9c4-a37c-40f5-b7fb-5715bc42537d",
+      "name": "🔍 Product Deep Dive",
+      "status": "standby",
+      "schedule": "Sundays 2:00 PM ET",
+      "nextRun": "-",
+      "output": "Single product validation",
+      "focus": "Weekly deep-dive analysis",
+      "type": "Weekly Validation"
+    },
+    {
+      "id": "f200e270-ab9f-4bc0-bdbe-201557099702",
+      "name": "💻 GitHub RepoWatch",
+      "status": "disabled",
+      "schedule": "Every 24 hours",
+      "nextRun": "-",
+      "output": "Repository health metrics",
+      "focus": "GroomTail monitoring",
+      "type": "GitHub Monitor"
+    },
+    {
+      "id": "9eee59ba-f0fd-4fff-af06-a0a020f290ab",
+      "name": "🐛 GitHub IssueTracker",
+      "status": "disabled",
+      "schedule": "Every 12 hours",
+      "nextRun": "-",
+      "output": "Issue monitoring",
+      "focus": "GroomTail monitoring",
+      "type": "GitHub Monitor"
+    },
+    {
+      "id": "b9791698-7f6c-4794-862c-362d82c104db",
+      "name": "🔀 GitHub PRMonitor",
+      "status": "disabled",
+      "schedule": "Every 12 hours",
+      "nextRun": "-",
+      "output": "PR monitoring",
+      "focus": "GroomTail monitoring",
+      "type": "GitHub Monitor"
+    },
+    {
+      "id": "43369014-90aa-422b-92b2-d12fdac7044f",
+      "name": "🛡️ GitHub BuildGuard",
+      "status": "disabled",
+      "schedule": "Every 1 hour",
+      "nextRun": "-",
+      "output": "CI/CD monitoring",
+      "focus": "GroomTail monitoring",
+      "type": "GitHub Monitor"
+    },
+    {
+      "id": "d42b7b1a-642d-4e1e-b499-cdc980271fc4",
+      "name": "📊 GitHub ActivityPulse",
+      "status": "disabled",
+      "schedule": "Every 7 days",
+      "nextRun": "-",
+      "output": "Weekly insights",
+      "focus": "GroomTail monitoring",
+      "type": "GitHub Monitor"
+    }
+  ],
+  "schedule": [
+    {
+      "time": "9:00 AM",
+      "agent": "📢 Meta Ad Research",
+      "deliverable": "10 products + ad patterns",
+      "status": "active"
+    },
+    {
+      "time": "10:00 AM",
+      "agent": "🛒 Product Hunter",
+      "deliverable": "10 products with links",
+      "status": "active"
+    },
+    {
+      "time": "6:00 PM",
+      "agent": "📢 Meta Ad Research",
+      "deliverable": "Updated patterns + trends",
+      "status": "active"
+    }
+  ],
+  "recentReports": [
+    {
+      "agent": "🛒 Product Hunter",
+      "title": "5 Niche Products",
+      "date": "2026-03-04T09:42:00Z",
+      "summary": "Mushroom Foraging Kit, Keyboard Lube Station, Bookbinding Kit, Leather Edge Beveler, Aquascaping Tools. All 6/10 saturation or lower. High margins (55-70%)."
+    },
+    {
+      "agent": "🛒 Product Hunter",
+      "title": "5 Winning Products",
+      "date": "2026-03-04T09:39:00Z",
+      "summary": "Portable Blender (9.5/10 confidence), Neck Traction Device, 3-in-1 Wireless Charger, Pet Steam Brush, LED Face Mask. All include AliExpress/Amazon/competitor links."
+    }
+  ]
+}
