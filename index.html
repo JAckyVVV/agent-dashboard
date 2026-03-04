@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 Command Center</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 Agent Command Center</h1>
+            <p>Real-time monitoring of automated agents</p>
+            <div class="last-updated">Last updated: <span id="lastUpdated">Loading...</span></div>
+        </header>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Agents</h3>
+                <div class="value" id="totalAgents">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Active</h3>
+                <div class="value active" id="activeAgents">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Standby</h3>
+                <div class="value standby" id="standbyAgents">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Disabled</h3>
+                <div class="value disabled" id="disabledAgents">-</div>
+            </div>
+        </div>
+
+        <!-- Active Agents Section -->
+        <div class="section">
+            <h2>⚡ Active Agents</h2>
+            <div id="activeAgentsList"></div>
+        </div>
+
+        <!-- Standby Agents Section -->
+        <div class="section">
+            <h2>⏸️ Standby Agents</h2>
+            <div id="standbyAgentsList"></div>
+        </div>
+
+        <!-- Disabled Agents Section -->
+        <div class="section">
+            <h2>⏹️ Disabled Agents</h2>
+            <div id="disabledAgentsList"></div>
+        </div>
+
+        <!-- Schedule Section -->
+        <div class="section">
+            <h2>📅 Daily Schedule (MST)</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Agent</th>
+                        <th>Deliverable</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="scheduleTable"></tbody>
+            </table>
+        </div>
+
+        <!-- Recent Reports Section -->
+        <div class="section">
+            <h2>📈 Recent Reports</h2>
+            <div id="recentReports"></div>
+        </div>
+
+        <!-- Command Reference -->
+        <div class="section">
+            <h2>⌨️ Quick Commands</h2>
+            <div class="command-box">
+                <h4>List All Jobs</h4>
+                <code>openclaw cron list</code>
+            </div>
+            <div class="command-box">
+                <h4>Run Product Hunter Now</h4>
+                <code>openclaw cron run --job-id 75a515ea-81aa-46cc-842e-0df8e8c9ca79 --mode force</code>
+            </div>
+            <div class="command-box">
+                <h4>Run Meta Ad Research Now</h4>
+                <code>openclaw cron run --job-id fc1d80af-c473-414b-b0cd-4b06f3485565 --mode force</code>
+            </div>
+        </div>
+
+        <!-- Job ID Reference -->
+        <div class="section">
+            <h2>📝 Job ID Reference</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Agent</th>
+                        <th>Job ID</th>
+                    </tr>
+                </thead>
+                <tbody id="jobIdTable"></tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>🤖 Agent Command Center | Auto-updating dashboard</p>
+            <p>Data refreshes every 5 minutes</p>
+        </footer>
+    </div>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
