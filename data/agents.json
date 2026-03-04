@@ -105,21 +105,82 @@
   ],
   "recentReports": [
     {
-      "agent": "Product Hunter",
+      "agent": "🛒 Product Hunter",
       "title": "10 Products Found",
       "date": "2026-03-04T04:42:23.235Z",
-      "summary": "Smart Posture Corrector top pick"
+      "summary": "Top find is the Smart Posture Corrector - solves a universal desk-worker problem with 70%+ margins, instant user feedback, and massive evergreen demand from remote work trends.",
+      "products": [
+        {
+          "name": "Smart Posture Corrector with Intelligent Sensor",
+          "price": "45-85",
+          "saturation": 6,
+          "margin": "70-80%",
+          "problem": "Back pain, neck strain, poor posture from prolonged sitting. Instant vibration feedback when slouching.",
+          "link": "https://www.aliexpress.com/w/wholesale-posture-corrector-dropship.html"
+        },
+        {
+          "name": "3-in-1 Foldable Wireless Charging Station",
+          "price": "49-89",
+          "saturation": 6,
+          "margin": "72%",
+          "problem": "Cable clutter for Apple ecosystem users. Charges iPhone, Watch, and AirPods simultaneously.",
+          "link": "https://www.alibaba.com/product-detail/360-Rotating-Excellent-3-in-1-1601254675448.html"
+        },
+        {
+          "name": "Blue Light Blocking Glasses",
+          "price": "45-75",
+          "saturation": 6,
+          "margin": "60%+",
+          "problem": "Digital eye strain, headaches, sleep disruption from prolonged screen exposure.",
+          "link": "https://www.aliexpress.com/w/wholesale-blue-light-glasses-dropship.html"
+        },
+        {
+          "name": "Mini Portable Massage Gun",
+          "price": "55-125",
+          "saturation": 6,
+          "margin": "65%+",
+          "problem": "Muscle tension, soreness, and pain relief. Instant deep tissue massage at home.",
+          "link": "https://www.aliexpress.com/item/1005006966312580.html"
+        },
+        {
+          "name": "Pet Nail Grinder with LED Light",
+          "price": "40-65",
+          "saturation": 6,
+          "margin": "75%",
+          "problem": "Painful pet nail clipping accidents. Safe, painless nail grooming at home.",
+          "link": "https://www.aliexpress.com/item/1005010212187474.html"
+        }
+      ],
+      "topProduct": {
+        "name": "Smart Posture Corrector with Intelligent Sensor",
+        "why": "Perfect problem-solution fit for desk workers. Addresses #1 complaint - back pain. 70-80% profit margins. Massive market with 50%+ US workers desk-based. Instant user feedback creates satisfaction. Evergreen demand from remote work trends.",
+        "link": "https://www.aliexpress.com/w/wholesale-posture-corrector-dropship.html"
+      }
+    },
+    {
+      "agent": "📢 Meta Ad Research",
+      "title": "Ad Intelligence Report",
+      "date": "2026-03-04T02:00:00.000Z",
+      "summary": "Found 10 winning ad patterns, 5 trending products, and 3 contrarian angles. Top hook: 'Stop waking up like your house is on fire' for alarm clock products.",
+      "hooks": [
+        "Stop [doing X] like [negative comparison]",
+        "The real reason you can't [achieve goal]",
+        "[Number] [things] that are sabotaging your [outcome]",
+        "Why your [common solution] is actually making it worse",
+        "The [adjective] [product] that [target audience] are obsessed with"
+      ],
+      "details": "Market Analysis:\n\nTop Trending Products:\n1. Sunrise alarm clocks - 340% search increase\n2. Under desk treadmills - work-from-home fitness\n3. Cold plunge tubs - recovery trend\n4. Mushroom coffee - focus/productivity\n5. Smart water bottles - hydration tracking\n\nWinning Creative Angles:\n- Problem-solution demo (first 3 seconds critical)\n- Before/after with timestamps\n- UGC testimonial with specific results\n- 'Day in the life' format\n- Expert authority positioning\n\nCTA Patterns:\n- 'Link in bio to claim yours'\n- 'Limited spots this week'\n- 'Tag someone who needs this'"
     },
     {
       "agent": "🛒 Product Hunter",
       "title": "5 Niche Products",
-      "date": "2026-03-04T09:42:00Z",
+      "date": "2026-03-04T01:42:00.000Z",
       "summary": "Mushroom Foraging Kit, Keyboard Lube Station, Bookbinding Kit, Leather Edge Beveler, Aquascaping Tools. All 6/10 saturation or lower. High margins (55-70%)."
     },
     {
       "agent": "🛒 Product Hunter",
       "title": "5 Winning Products",
-      "date": "2026-03-04T09:39:00Z",
+      "date": "2026-03-04T01:39:00.000Z",
       "summary": "Portable Blender (9.5/10 confidence), Neck Traction Device, 3-in-1 Wireless Charger, Pet Steam Brush, LED Face Mask. All include AliExpress/Amazon/competitor links."
     }
   ]
