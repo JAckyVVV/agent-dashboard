@@ -1,0 +1,77 @@
+name: Update Agent Dashboard
+
+on:
+  schedule:
+    # Run every hour
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    inputs:
+      agent_name:
+        description: 'Agent that triggered update'
+        required: false
+        default: 'manual'
+      report_data:
+        description: 'Report data (JSON)'
+        required: false
+        default: ''
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.AGENT_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Update agent data
+      run: |
+        node -e "
+          const fs = require('fs');
+          const data = JSON.parse(fs.readFileSync('data/agents.json', 'utf8'));
+          
+          // Update timestamp
+          data.lastUpdated = new Date().toISOString();
+          
+          // If triggered by an agent with report data
+          const reportData = process.env.REPORT_DATA;
+          const agentName = process.env.AGENT_NAME;
+          
+          if (reportData && agentName !== 'manual') {
+            try {
+              const report = JSON.parse(reportData);
+              // Add to recent reports
+              data.recentReports.unshift({
+                agent: agentName,
+                title: report.title || 'New Report',
+                date: new Date().toISOString(),
+                summary: report.summary || 'Report generated'
+              });
+              // Keep only last 10 reports
+              data.recentReports = data.recentReports.slice(0, 10);
+            } catch (e) {
+              console.log('No report data to parse');
+            }
+          }
+          
+          fs.writeFileSync('data/agents.json', JSON.stringify(data, null, 2));
+          console.log('Updated at:', data.lastUpdated);
+        "
+      env:
+        REPORT_DATA: ${{ github.event.inputs.report_data }}
+        AGENT_NAME: ${{ github.event.inputs.agent_name }}
+    
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/agents.json
+        git diff --staged --quiet || (git commit -m "Update dashboard - ${{ github.event.inputs.agent_name || 'scheduled' }} ($(date))" && git push)
+      env:
+        GITHUB_TOKEN: ${{ secrets.AGENT_TOKEN }}
