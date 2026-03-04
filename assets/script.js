@@ -1,5 +1,6 @@
 // Agent Dashboard JavaScript
 // Auto-refreshes data from agents.json
+// Supports expandable report cards
 
 let agentsData = null;
 
@@ -118,6 +119,90 @@ function updateSchedule() {
     `).join('');
 }
 
+function createExpandableReport(report, index) {
+    const date = new Date(report.date);
+    const timeString = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    const hasDetails = report.products || report.details || report.hooks;
+    
+    // Build expandable content
+    let expandableContent = '';
+    
+    if (report.products && report.products.length > 0) {
+        expandableContent += `
+            <div class="report-section">
+                <h4>🛒 Products Found (${report.products.length})</h4>
+                ${report.products.map((p, i) => `
+                    <div class="product-item">
+                        <div class="product-header">
+                            <span class="product-rank">#${i + 1}</span>
+                            <span class="product-name">${p.name}</span>
+                            <span class="product-price">$${p.price}</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="saturation">Saturation: ${p.saturation}/10</span>
+                            <span class="margin">Margin: ${p.margin}</span>
+                        </div>
+                        <p class="product-problem"><strong>Problem:</strong> ${p.problem}</p>
+                        ${p.link ? `<a href="${p.link}" target="_blank" class="product-link">View Product →</a>` : ''}
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+    
+    if (report.details) {
+        expandableContent += `
+            <div class="report-section">
+                <h4>📋 Full Report</h4>
+                <div class="report-details-content">${report.details}</div>
+            </div>
+        `;
+    }
+    
+    if (report.hooks && report.hooks.length > 0) {
+        expandableContent += `
+            <div class="report-section">
+                <h4>🎯 Hook Templates</h4>
+                <ul class="hook-list">
+                    ${report.hooks.map(h => `<li>${h}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+    }
+    
+    if (report.topProduct) {
+        expandableContent += `
+            <div class="report-section top-product-section">
+                <h4>⭐ Top Recommendation</h4>
+                <div class="top-product">
+                    <h5>${report.topProduct.name}</h5>
+                    <p>${report.topProduct.why}</p>
+                    ${report.topProduct.link ? `<a href="${report.topProduct.link}" target="_blank">View Supplier →</a>` : ''}
+                </div>
+            </div>
+        `;
+    }
+    
+    return `
+        <div class="report-card ${hasDetails ? 'expandable' : ''}" data-report-index="${index}">
+            <div class="report-header" onclick="toggleReport(${index})">
+                <div class="report-title-section">
+                    <span class="report-agent">${report.agent}</span>
+                    <span class="report-title-text">${report.title}</span>
+                    ${hasDetails ? '<span class="expand-icon">▼</span>' : ''}
+                </div>
+                <div class="report-time">${timeString}</div>
+            </div>
+            <div class="report-preview">${report.summary}</div>
+            ${hasDetails ? `
+                <div class="report-expandable" id="report-content-${index}">
+                    ${expandableContent}
+                </div>
+            ` : ''}
+        </div>
+    `;
+}
+
 function updateRecentReports() {
     const container = document.getElementById('recentReports');
     
@@ -126,20 +211,41 @@ function updateRecentReports() {
         return;
     }
     
-    container.innerHTML = agentsData.recentReports.map(report => {
-        const date = new Date(report.date);
-        const timeString = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    container.innerHTML = agentsData.recentReports.map((report, index) => 
+        createExpandableReport(report, index)
+    ).join('');
+}
+
+function toggleReport(index) {
+    const content = document.getElementById(`report-content-${index}`);
+    const card = document.querySelector(`[data-report-index="${index}"]`);
+    
+    if (!content || !card) return;
+    
+    const isExpanded = content.classList.contains('expanded');
+    const icon = card.querySelector('.expand-icon');
+    
+    if (isExpanded) {
+        content.classList.remove('expanded');
+        if (icon) icon.textContent = '▼';
+        card.classList.remove('expanded');
+    } else {
+        // Close other expanded reports
+        document.querySelectorAll('.report-expandable.expanded').forEach(el => {
+            el.classList.remove('expanded');
+        });
+        document.querySelectorAll('.report-card.expanded').forEach(el => {
+            el.classList.remove('expanded');
+        });
+        document.querySelectorAll('.expand-icon').forEach(el => {
+            el.textContent = '▼';
+        });
         
-        return `
-            <div class="report-card">
-                <div class="report-header">
-                    <div class="report-title">${report.agent} - ${report.title}</div>
-                    <div class="report-time">${timeString}</div>
-                </div>
-                <div class="report-preview">${report.summary}</div>
-            </div>
-        `;
-    }).join('');
+        // Open this one
+        content.classList.add('expanded');
+        if (icon) icon.textContent = '▲';
+        card.classList.add('expanded');
+    }
 }
 
 function updateJobIdTable() {
@@ -177,7 +283,10 @@ function showError(message) {
     container.insertBefore(errorDiv, container.firstChild);
 }
 
-// Manual refresh button (if added to HTML)
+// Manual refresh
 function refreshData() {
     loadData();
 }
+
+// Expose toggle function globally
+window.toggleReport = toggleReport;
