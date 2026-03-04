@@ -19,18 +19,23 @@ jobs:
   update-dashboard:
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: write
+    
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         token: ${{ secrets.AGENT_TOKEN }}
+        fetch-depth: 0
     
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
     
     - name: Update agent data
+      id: update
       run: |
         node -e "
           const fs = require('fs');
@@ -43,21 +48,61 @@ jobs:
           const reportData = process.env.REPORT_DATA;
           const agentName = process.env.AGENT_NAME;
           
-          if (reportData && agentName !== 'manual') {
+          console.log('Agent:', agentName);
+          console.log('Has report data:', !!reportData);
+          
+          if (reportData && agentName && agentName !== 'manual') {
             try {
               const report = JSON.parse(reportData);
+              console.log('Report title:', report.title);
+              
               // Add to recent reports
-              data.recentReports.unshift({
+              const newReport = {
                 agent: agentName,
                 title: report.title || 'New Report',
                 date: new Date().toISOString(),
                 summary: report.summary || 'Report generated'
-              });
+              };
+              
+              // Add products if present
+              if (report.products && report.products.length > 0) {
+                newReport.products = report.products;
+              }
+              
+              // Add topProduct if present
+              if (report.topProduct) {
+                newReport.topProduct = report.topProduct;
+              }
+              
+              // Add hooks if present
+              if (report.hooks) {
+                newReport.hooks = report.hooks;
+              }
+              
+              // Add insights if present
+              if (report.insights) {
+                newReport.insights = report.insights;
+              }
+              
+              // Add tips if present
+              if (report.tips) {
+                newReport.tips = report.tips;
+              }
+              
+              data.recentReports.unshift(newReport);
+              
               // Keep only last 10 reports
-              data.recentReports = data.recentReports.slice(0, 10);
+              if (data.recentReports.length > 10) {
+                data.recentReports = data.recentReports.slice(0, 10);
+              }
+              
+              console.log('✅ Added report from:', agentName);
             } catch (e) {
-              console.log('No report data to parse');
+              console.log('❌ Error parsing report data:', e.message);
+              console.log('Report data received:', reportData.substring(0, 200));
             }
+          } else {
+            console.log('ℹ️ No report data - updating timestamp only');
           }
           
           fs.writeFileSync('data/agents.json', JSON.stringify(data, null, 2));
@@ -72,6 +117,11 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add data/agents.json
-        git diff --staged --quiet || (git commit -m "Update dashboard - ${{ github.event.inputs.agent_name || 'scheduled' }} ($(date))" && git push)
-      env:
-        GITHUB_TOKEN: ${{ secrets.AGENT_TOKEN }}
+        git status
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Update dashboard - ${{ github.event.inputs.agent_name || 'scheduled' }} ($(date))"
+          git push origin main
+          echo "✅ Changes pushed successfully"
+        fi
