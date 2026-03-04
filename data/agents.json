@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-04T06:03:56.565Z",
+  "lastUpdated": "2026-03-04T04:42:23.235Z",
   "timezone": "America/Denver",
   "agents": [
     {
@@ -23,15 +23,15 @@
       "type": "Ad Intelligence"
     },
     {
-  "id": "23892d9e-94b0-484a-96ec-32117bee3a1e",
-  "name": "📝 Copywriting Tips",
-  "status": "active",
-  "schedule": "Every 6 hours",
-  "nextRun": "In 6 hours",
-  "output": "10 tips + 3 ad analyses",
-  "focus": "Direct response copywriting & persuasion",
-  "type": "Marketing Research"
-}
+      "id": "23892d9e-94b0-484a-96ec-32117bee3a1e",
+      "name": "📝 Copywriting Tips",
+      "status": "active",
+      "schedule": "Every 6 hours",
+      "nextRun": "In 6 hours",
+      "output": "10 tips + 3 ad analyses",
+      "focus": "Direct response copywriting",
+      "type": "Marketing Research"
+    },
     {
       "id": "0c44b9c4-a37c-40f5-b7fb-5715bc42537d",
       "name": "🔍 Product Deep Dive",
@@ -41,56 +41,6 @@
       "output": "Single product validation",
       "focus": "Weekly deep-dive analysis",
       "type": "Weekly Validation"
-    },
-    {
-      "id": "f200e270-ab9f-4bc0-bdbe-201557099702",
-      "name": "💻 GitHub RepoWatch",
-      "status": "disabled",
-      "schedule": "Every 24 hours",
-      "nextRun": "-",
-      "output": "Repository health metrics",
-      "focus": "GroomTail monitoring",
-      "type": "GitHub Monitor"
-    },
-    {
-      "id": "9eee59ba-f0fd-4fff-af06-a0a020f290ab",
-      "name": "🐛 GitHub IssueTracker",
-      "status": "disabled",
-      "schedule": "Every 12 hours",
-      "nextRun": "-",
-      "output": "Issue monitoring",
-      "focus": "GroomTail monitoring",
-      "type": "GitHub Monitor"
-    },
-    {
-      "id": "b9791698-7f6c-4794-862c-362d82c104db",
-      "name": "🔀 GitHub PRMonitor",
-      "status": "disabled",
-      "schedule": "Every 12 hours",
-      "nextRun": "-",
-      "output": "PR monitoring",
-      "focus": "GroomTail monitoring",
-      "type": "GitHub Monitor"
-    },
-    {
-      "id": "43369014-90aa-422b-92b2-d12fdac7044f",
-      "name": "🛡️ GitHub BuildGuard",
-      "status": "disabled",
-      "schedule": "Every 1 hour",
-      "nextRun": "-",
-      "output": "CI/CD monitoring",
-      "focus": "GroomTail monitoring",
-      "type": "GitHub Monitor"
-    },
-    {
-      "id": "d42b7b1a-642d-4e1e-b499-cdc980271fc4",
-      "name": "📊 GitHub ActivityPulse",
-      "status": "disabled",
-      "schedule": "Every 7 days",
-      "nextRun": "-",
-      "output": "Weekly insights",
-      "focus": "GroomTail monitoring",
-      "type": "GitHub Monitor"
     }
   ],
   "schedule": [
@@ -107,107 +57,39 @@
       "status": "active"
     },
     {
+      "time": "Every 6 hours",
+      "agent": "📝 Copywriting Tips",
+      "deliverable": "10 tips + 3 ad analyses",
+      "status": "active"
+    },
+    {
       "time": "6:00 PM",
       "agent": "📢 Meta Ad Research",
       "deliverable": "Updated patterns + trends",
       "status": "active"
     }
-    {
-  "time": "Every 6 hours",
-  "agent": "📝 Copywriting Tips",
-  "deliverable": "10 copywriting tips + 3 ad analyses",
-  "status": "active"
-}
   ],
   "recentReports": [
     {
       "agent": "🛒 Product Hunter",
       "title": "10 Products Found",
       "date": "2026-03-04T04:42:23.235Z",
-      "summary": "Top find is the Smart Posture Corrector - solves a universal desk-worker problem with 70%+ margins, instant user feedback, and massive evergreen demand from remote work trends.",
+      "summary": "Top find is the Smart Posture Corrector - solves a universal desk-worker problem with 70%+ margins.",
       "products": [
         {
-          "name": "Smart Posture Corrector with Intelligent Sensor",
+          "name": "Smart Posture Corrector",
           "price": "45-85",
           "saturation": 6,
           "margin": "70-80%",
-          "problem": "Back pain, neck strain, poor posture from prolonged sitting. Instant vibration feedback when slouching.",
+          "problem": "Back pain from prolonged sitting",
           "link": "https://www.aliexpress.com/w/wholesale-posture-corrector-dropship.html"
-        },
-        {
-          "name": "3-in-1 Foldable Wireless Charging Station",
-          "price": "49-89",
-          "saturation": 6,
-          "margin": "72%",
-          "problem": "Cable clutter for Apple ecosystem users. Charges iPhone, Watch, and AirPods simultaneously.",
-          "link": "https://www.alibaba.com/product-detail/360-Rotating-Excellent-3-in-1-1601254675448.html"
-        },
-        {
-          "name": "Blue Light Blocking Glasses",
-          "price": "45-75",
-          "saturation": 6,
-          "margin": "60%+",
-          "problem": "Digital eye strain, headaches, sleep disruption from prolonged screen exposure.",
-          "link": "https://www.aliexpress.com/w/wholesale-blue-light-glasses-dropship.html"
-        },
-        {
-          "name": "Mini Portable Massage Gun",
-          "price": "55-125",
-          "saturation": 6,
-          "margin": "65%+",
-          "problem": "Muscle tension, soreness, and pain relief. Instant deep tissue massage at home.",
-          "link": "https://www.aliexpress.com/item/1005006966312580.html"
-        },
-        {
-          "name": "Pet Nail Grinder with LED Light",
-          "price": "40-65",
-          "saturation": 6,
-          "margin": "75%",
-          "problem": "Painful pet nail clipping accidents. Safe, painless nail grooming at home.",
-          "link": "https://www.aliexpress.com/item/1005010212187474.html"
         }
       ],
       "topProduct": {
-        "name": "Smart Posture Corrector with Intelligent Sensor",
-        "why": "Perfect problem-solution fit for desk workers. Addresses #1 complaint - back pain. 70-80% profit margins. Massive market with 50%+ US workers desk-based. Instant user feedback creates satisfaction. Evergreen demand from remote work trends.",
+        "name": "Smart Posture Corrector",
+        "why": "Perfect for desk workers. 70-80% margins.",
         "link": "https://www.aliexpress.com/w/wholesale-posture-corrector-dropship.html"
       }
-    },
-    {
-      "agent": "📢 Meta Ad Research",
-      "title": "Ad Intelligence Report",
-      "date": "2026-03-04T02:00:00.000Z",
-      "summary": "Found 10 winning ad patterns, 5 trending products, and 3 contrarian angles. Top hook: 'Stop waking up like your house is on fire' for alarm clock products.",
-      "hooks": [
-        "Stop [doing X] like [negative comparison]",
-        "The real reason you can't [achieve goal]",
-        "[Number] [things] that are sabotaging your [outcome]",
-        "Why your [common solution] is actually making it worse",
-        "The [adjective] [product] that [target audience] are obsessed with"
-      ],
-      "details": "Market Analysis:\n\nTop Trending Products:\n1. Sunrise alarm clocks - 340% search increase\n2. Under desk treadmills - work-from-home fitness\n3. Cold plunge tubs - recovery trend\n4. Mushroom coffee - focus/productivity\n5. Smart water bottles - hydration tracking\n\nWinning Creative Angles:\n- Problem-solution demo (first 3 seconds critical)\n- Before/after with timestamps\n- UGC testimonial with specific results\n- 'Day in the life' format\n- Expert authority positioning\n\nCTA Patterns:\n- 'Link in bio to claim yours'\n- 'Limited spots this week'\n- 'Tag someone who needs this'"
-    },
-    {
-      "agent": "🛒 Product Hunter",
-      "title": "5 Niche Products",
-      "date": "2026-03-04T01:42:00.000Z",
-      "summary": "Mushroom Foraging Kit, Keyboard Lube Station, Bookbinding Kit, Leather Edge Beveler, Aquascaping Tools. All 6/10 saturation or lower. High margins (55-70%)."
-    },
-    {
-      "agent": "🛒 Product Hunter",
-      "title": "5 Winning Products",
-      "date": "2026-03-04T01:39:00.000Z",
-      "summary": "Portable Blender (9.5/10 confidence), Neck Traction Device, 3-in-1 Wireless Charger, Pet Steam Brush, LED Face Mask. All include AliExpress/Amazon/competitor links."
     }
   ]
-}
-{
-  "id": "23892d9e-94b0-484a-96ec-32117bee3a1e",
-  "name": "📝 Copywriting Tips",
-  "status": "active",
-  "schedule": "Every 6 hours",
-  "nextRun": "In 6 hours",
-  "output": "10 tips + 3 ad analyses",
-  "focus": "Direct response copywriting & persuasion",
-  "type": "Marketing Research"
 }
