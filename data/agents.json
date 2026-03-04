@@ -42,6 +42,16 @@
       "focus": "Weekly deep-dive analysis",
       "type": "Weekly Validation"
     }
+    {
+  "id": "e8f00676-ba34-42a3-964a-b9770e9edb6b",
+  "name": "🛍️ Shopify CRO Specialist",
+  "status": "active",
+  "schedule": "Daily 12:00 PM MST",
+  "nextRun": "Tomorrow 12:00 PM",
+  "output": "Store optimization blueprint + copy",
+  "focus": "Shrine Theme conversion design",
+  "type": "Store Optimization"
+}
   ],
   "schedule": [
     {
@@ -68,6 +78,12 @@
       "deliverable": "Updated patterns + trends",
       "status": "active"
     }
+    {
+  "time": "12:00 PM",
+  "agent": "🛍️ Shopify CRO Specialist",
+  "deliverable": "Store optimization blueprint",
+  "status": "active"
+}
   ],
   "recentReports": [
     {
